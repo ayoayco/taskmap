@@ -1,0 +1,31 @@
+{
+  "name": "taskmap",
+  "version": "1.0.0",
+  "description": "taskmap is an itinerary creation tool",
+  "main": "app.js",
+  "dependencies": {
+    "connect": "^3.4.1",
+    "angularjs": "^0.0.1",
+    "leaflet": "^0.7.7",
+    "serve-static": "^1.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "app.js 8082 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoayco/taskmap.git"
+  },
+  "keywords": [
+    "leaflet",
+    "angularjs",
+    "node"
+  ],
+  "author": "Ayo Ayco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayoayco/taskmap/issues"
+  },
+  "homepage": "https://github.com/ayoayco/taskmap#readme"
+}
