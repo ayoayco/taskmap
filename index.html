@@ -3,23 +3,25 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="taskmap">
 <head>
 	<meta charset="UTF-8">
 	<title>tutorial leaflet.js</title>
 	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<div id="bodywrap">
+	<div id="bodywrap" ng-controller="NavController as nav">
         <header>
-            <h1>Itinerary Creation Tool</h1>
+            <h1>Hi, {{nav.user}}</h1>
         </header>
         <div id="map"></div>
     </div>
-    <script type="text/javascript" src="index.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="index-leaflet.js"></script>
+    <script type="text/javascript" src="index-angular.js"></script>
 </body>
 </html>
