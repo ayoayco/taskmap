@@ -2,4 +2,36 @@
 	author: ayoayco
 */
 
-#map { height: 360px; }
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#bodywrap{
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+div#map {
+    height: 100%;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 30px;
+    background: #000;
+    color: white;
+    width: 100%;
+}
+
+header{
+    height: 100px;
+    padding-left: 30px;
+    background: #000;
+    color: white;
+    margin: 0;
+}
