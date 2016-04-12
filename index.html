@@ -1,29 +1,38 @@
-<!--
-	author: ayoayco
--->
-
 <!DOCTYPE html>
-<html lang="en" ng-app="taskmap">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>tutorial leaflet.js</title>
 	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body ng-app="taskmap">
+	<div id="bodywrap">
+        <div ng-include="'views/NavView.html'"></div>
+        <div id="map"></div>
+        <div ng-include="'views/FooterView.html'"></div>
+    </div>
+    
+    <!-- libraries -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="node_modules/leaflet/dist/leaflet.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
-	<div id="bodywrap" ng-controller="NavController as nav">
-        <header>
-            <h1>Hi, {{nav.user}}</h1>
-        </header>
-        <div id="map"></div>
-        <footer>
-            &copy; Ayo Ayco. All Rights Reserved.
-        </footer>
-    </div>
-    <script type="text/javascript" src="index.js"></script>
+    
+    <!-- app -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/common/common.services.js"></script>
+    <script type="text/javascript" src="app/map.js"></script>
+    
+    <!-- services -->
+    <script type="text/javascript" src="app/common/UserService.js"></script>
+    
+    <!-- controllers -->
+    <script type="text/javascript" src="app/User/UserController.js"></script>
+    
+    <!-- domain models -->
+    <script type="text/javascript" src="app/User/User.js"></script>
+    
 </body>
 </html>

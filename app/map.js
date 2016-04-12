@@ -2,22 +2,6 @@
 	author: ayoayco
 */
 
-
-(function(){
-
-var app = angular.module('taskmap', []);
-
-app.controller('NavController', function () {
-    var nav = this;
-    nav.status = "intial status";
-    nav.user = 'ayo';
-});
-
-
-
-
-})();
-
 var map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

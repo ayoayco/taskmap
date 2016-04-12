@@ -4,18 +4,19 @@
 
 html, body{
     height: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    top: 0;
 }
 
 #bodywrap{
     height: 100%;
-    padding-bottom: 100px;
 }
 
 div#map {
     height: 100%;
     position: relative;
+    padding-bottom: 100px;
 }
 
 footer{
