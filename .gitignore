@@ -3,6 +3,7 @@
 node_modules/
 .vscode/
 typings/
+tsconfig.json
 
 # Compiled source #
 ###################
