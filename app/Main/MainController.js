@@ -8,7 +8,7 @@ var app;
                 this.loadData();
             }
             MainController.prototype.loadData = function () {
-                this.userService.createUser("ayoayco", "Ayo", "Ayco");
+                this.userService.createUser("ayoayco", "Ayo", "Ayco", true);
             };
             return MainController;
         })();

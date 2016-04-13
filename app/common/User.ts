@@ -1,13 +1,16 @@
 module app.domain{
-    export interface IUser{
+    export interface IUserModel{
         username: string;
         firstName: string;
         lastName: string;
+        premium: boolean;
     }
-    export class User implements IUser{
-        constructor(public username: string,
-        public firstName: string,
-        public lastName: string){
+    export class UserClass implements IUserModel{
+        constructor(
+            public username: string,
+            public firstName: string,
+            public lastName: string,
+            public premium: boolean){
             
         }
     }

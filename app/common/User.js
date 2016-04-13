@@ -2,14 +2,15 @@ var app;
 (function (app) {
     var domain;
     (function (domain) {
-        var User = (function () {
-            function User(username, firstName, lastName) {
+        var UserClass = (function () {
+            function UserClass(username, firstName, lastName, premium) {
                 this.username = username;
                 this.firstName = firstName;
                 this.lastName = lastName;
+                this.premium = premium;
             }
-            return User;
+            return UserClass;
         })();
-        domain.User = User;
+        domain.UserClass = UserClass;
     })(domain = app.domain || (app.domain = {}));
 })(app || (app = {}));

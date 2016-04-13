@@ -7,7 +7,7 @@ module app.controllers{
             this.loadData();
         }
         private loadData(){
-            this.userService.createUser("ayoayco", "Ayo", "Ayco");
+            this.userService.createUser("ayoayco", "Ayo", "Ayco", true);
         }
     }
     
