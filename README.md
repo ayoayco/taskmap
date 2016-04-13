@@ -1,4 +1,4 @@
-#taskmap is a simple itinerary creation tool
+#TASKMAP is a simple itinerary creation tool
 
 "Where to next?"
 
