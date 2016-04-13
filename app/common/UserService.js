@@ -6,8 +6,14 @@ var app;
             function UserService() {
             }
             UserService.prototype.createUser = function (username, firstname, lastname) {
-                var user = new app.domain.User(username, firstname, lastname);
-                return user;
+                this.user = new app.domain.User(username, firstname, lastname);
+                return this.user;
+            };
+            UserService.prototype.getActiveUser = function () {
+                if (this.user)
+                    return this.user;
+                else
+                    return this.createUser("username", "firstname", "lastname");
             };
             return UserService;
         })();

@@ -8,10 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body ng-app="taskmap">
-	<div id="bodywrap">
-        <div id="header" ng-include="'views/NavView.html'"></div>
+	<div id="bodywrap" ng-controller="MainController as main">
+        <div id="header" ng-include="'app/Nav/NavView.html'"></div>
         <div id="map"></div>
-        <div id="footer" ng-include="'views/FooterView.html'"></div>
+        <div id="footer" ng-include="'app/Footer/FooterView.html'"></div>
     </div>
     
     <!-- libraries -->
@@ -29,10 +29,11 @@
     <script type="text/javascript" src="app/common/UserService.js"></script>
     
     <!-- controllers -->
-    <script type="text/javascript" src="app/User/UserController.js"></script>
+    <script type="text/javascript" src="app/Main/MainController.js"></script>
+    <script type="text/javascript" src="app/Nav/NavController.js"></script>
     
     <!-- domain models -->
-    <script type="text/javascript" src="app/User/User.js"></script>
+    <script type="text/javascript" src="app/common/User.js"></script>
     
 </body>
 </html>
