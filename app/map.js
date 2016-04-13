@@ -2,7 +2,7 @@ var map;
 (function (map_1) {
     var map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: '2015 &copy; Ayo Ayco. All Rights Reserved.',
+        attribution: '2016 &copy; Ayo Ayco. All Rights Reserved.',
         maxZoom: 18,
         id: 'ayoayco.njl702a2',
         accessToken: 'pk.eyJ1IjoiYXlvYXljbyIsImEiOiI1YzVic1JvIn0.AnH_wYkYOKMJGmrgGT-A8g'
