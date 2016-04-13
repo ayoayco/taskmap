@@ -9,7 +9,7 @@ var app;
             }
             MainController.prototype.loadData = function () {
                 this.userService.createUser("ayoayco", "Ayo", "Ayco", true);
-                this.title = "Taskmap";
+                this.title = "App";
                 this.version = "1.0.0";
                 this.beta = true;
             };
