@@ -10,9 +10,9 @@
 </head>
 <body ng-app="taskmap">
 	<div id="bodywrap" ng-controller="MainController as main">
-        <div id="header" ng-include="'app/Nav/NavView.html'"></div>
+        <div id="header" ng-include="'built/Nav/NavView.html'"></div>
         <div id="map"></div>
-        <div id="footer" ng-include="'app/Footer/FooterView.html'"></div>
+        <div id="footer" ng-include="'built/Footer/FooterView.html'"></div>
     </div>
     
     <!-- libraries -->
@@ -22,19 +22,19 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <!-- app -->
-    <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/common/common.services.js"></script>
-    <script type="text/javascript" src="app/map.js"></script>
+    <script type="text/javascript" src="built/app.js"></script>
+    <script type="text/javascript" src="built/common/common.services.js"></script>
+    <script type="text/javascript" src="built/map.js"></script>
     
     <!-- services -->
-    <script type="text/javascript" src="app/common/UserService.js"></script>
+    <script type="text/javascript" src="built/common/UserService.js"></script>
     
     <!-- controllers -->
-    <script type="text/javascript" src="app/Main/MainController.js"></script>
-    <script type="text/javascript" src="app/Nav/NavController.js"></script>
+    <script type="text/javascript" src="built/Main/MainController.js"></script>
+    <script type="text/javascript" src="built/Nav/NavController.js"></script>
     
     <!-- domain models -->
-    <script type="text/javascript" src="app/common/User.js"></script>
+    <script type="text/javascript" src="built/common/User.js"></script>
     
 </body>
 </html>
