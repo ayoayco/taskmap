@@ -1,6 +1,7 @@
 # dev files #
 ################
 node_modules/
+.vscode
 
 # Compiled source #
 ###################
