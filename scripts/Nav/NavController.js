@@ -1,7 +1,7 @@
 var app;
 (function (app) {
-    var controller;
-    (function (controller) {
+    var controllers;
+    (function (controllers) {
         var NavController = (function () {
             function NavController(userService) {
                 this.userService = userService;
@@ -11,5 +11,5 @@ var app;
         })();
         angular.module("taskmap")
             .controller("NavController", NavController);
-    })(controller = app.controller || (app.controller = {}));
+    })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));

@@ -1,5 +1,5 @@
 
 module app{
-    var app = angular.module('taskmap',
+    angular.module('taskmap',
                 ["common.services"]);
 }

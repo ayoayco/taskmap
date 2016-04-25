@@ -1,5 +1,5 @@
-var map;
-(function (map_1) {
+var app;
+(function (app) {
     var map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: '2016 &copy; Ayo Ayco. All Rights Reserved.',
@@ -11,7 +11,7 @@ var map;
     var circle = L.circle([51.508, -0.11], 500, {
         color: 'red',
         fillColor: 'red',
-        fillOpacity: 0.4,
+        fillOpacity: 0.4
     }).addTo(map);
     var polygon = L.polygon([
         [51.509, -0.08],
@@ -34,4 +34,4 @@ var map;
         L.marker(e.latlng).addTo(map).bindPopup("hello world!");
     }
     map.on('click', onMapClick);
-})(map || (map = {}));
+})(app || (app = {}));
