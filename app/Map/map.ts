@@ -8,9 +8,6 @@ module leafletapp{
         id: 'ayoayco.njl702a2',
         accessToken: 'pk.eyJ1IjoiYXlvYXljbyIsImEiOiI1YzVic1JvIn0.AnH_wYkYOKMJGmrgGT-A8g'
     });
- 
-    function setUserLocation(){
-        var loc: L.LatLng = L.latLng(51.505, -0.09);
         var options = {
             // enableHighAccuracy = should the device take extra time or power to return a really accurate result, or should it give you the quick (but less accurate) answer?  
             enableHighAccuracy: false, 
@@ -19,17 +16,17 @@ module leafletapp{
             // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
             maximumAge: 0 
         };
-        
+ 
+    function setUserLocation(){        
         // call getCurrentPosition()
         navigator.geolocation.getCurrentPosition(success, error , options);
-        
         
         // upon success, do this
         function success(pos){
             // get longitude and latitude from the position object passed in
             userLocation = L.latLng(pos.coords.latitude,pos.coords.longitude);
             console.log("User location acquired: "+userLocation); 
-            map.setView([userLocation.lat, userLocation.lng], 13);
+            map.setView(userLocation, 13);
             tileLayer.addTo(map);
         }
         
@@ -37,11 +34,30 @@ module leafletapp{
         function error(err){
             console.log('Error: ' + err + ' :('); // alert the error message
         }
+    }
+ 
+    function markUserLocation(){        
+        // call getCurrentPosition()
+        navigator.geolocation.getCurrentPosition(success, error , options);
         
+        // upon success, do this
+        function success(pos){
+            // get longitude and latitude from the position object passed in
+            userLocation = L.latLng(pos.coords.latitude,pos.coords.longitude);
+            console.log("User location acquired: "+userLocation);
+            L.marker(userLocation).addTo(map); 
+            tileLayer.addTo(map);
+        }
+        
+        // upon error, do this
+        function error(err){
+            console.log('Error: ' + err + ' :('); // alert the error message
+        }
     }
  
     if('geolocation' in navigator){ // geolocation is supported :)
         setUserLocation();
+        markUserLocation();
     }else{ // no geolocation :(
         userLocation = L.latLng(51.505, -0.09);
         console.log("Failed to acquire User location."); 
