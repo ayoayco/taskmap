@@ -26,6 +26,7 @@ var leafletapp;
             userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
             console.log("User location acquired: " + userLocation);
             map.setView([userLocation.lat, userLocation.lng], 13);
+            tileLayer.addTo(map);
         }
         // upon error, do this
         function error(err) {
@@ -33,14 +34,12 @@ var leafletapp;
         }
     }
     if ('geolocation' in navigator) {
-        // geolocation is supported :)
         setUserLocation();
     }
     else {
-        // no geolocation :(
         userLocation = L.latLng(51.505, -0.09);
         console.log("Failed to acquire User location.");
         map.setView([userLocation.lat, userLocation.lng], 13);
+        tileLayer.addTo(map);
     }
-    tileLayer.addTo(map);
 })(leafletapp || (leafletapp = {}));
