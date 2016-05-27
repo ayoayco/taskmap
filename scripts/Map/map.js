@@ -8,8 +8,8 @@ var leafletapp;
         id: 'ayoayco.njl702a2',
         accessToken: 'pk.eyJ1IjoiYXlvYXljbyIsImEiOiI1YzVic1JvIn0.AnH_wYkYOKMJGmrgGT-A8g'
     });
-    function getUserLatLng() {
-        var loc;
+    function setUserLocation() {
+        var loc = L.latLng(51.505, -0.09);
         var options = {
             // enableHighAccuracy = should the device take extra time or power to return a really accurate result, or should it give you the quick (but less accurate) answer?  
             enableHighAccuracy: false,
@@ -19,28 +19,28 @@ var leafletapp;
             maximumAge: 0
         };
         // call getCurrentPosition()
-        navigator.geolocation.getCurrentPosition(success, error /*, options*/);
+        navigator.geolocation.getCurrentPosition(success, error, options);
         // upon success, do this
         function success(pos) {
             // get longitude and latitude from the position object passed in
-            console.log("inside success " + loc.lat + "," + loc.lng);
-            return loc = L.latLng(pos.coords.latitude, pos.coords.longitude);
+            userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
+            console.log("User location acquired: " + userLocation);
+            map.setView([userLocation.lat, userLocation.lng], 13);
         }
         // upon error, do this
         function error(err) {
             console.log('Error: ' + err + ' :('); // alert the error message
         }
-        console.log("inside function " + loc.lat + "," + loc.lng);
-        return loc;
     }
     if ('geolocation' in navigator) {
         // geolocation is supported :)
-        userLocation = getUserLatLng();
+        setUserLocation();
     }
     else {
         // no geolocation :(
         userLocation = L.latLng(51.505, -0.09);
+        console.log("Failed to acquire User location.");
+        map.setView([userLocation.lat, userLocation.lng], 13);
     }
-    map.setView([userLocation.lat, userLocation.lng], 13);
     tileLayer.addTo(map);
 })(leafletapp || (leafletapp = {}));
