@@ -10,9 +10,9 @@ module leafletapp{
     });
         var options = {
             // enableHighAccuracy = should the device take extra time or power to return a really accurate result, or should it give you the quick (but less accurate) answer?  
-            enableHighAccuracy: false, 
+            enableHighAccuracy: true, 
             // timeout = how long does the device have, in milliseconds to return a result?
-            timeout: 5000,  
+            timeout: 10000,  
             // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
             maximumAge: 0 
         };
