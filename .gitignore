@@ -2,6 +2,7 @@
 ################
 node_modules/
 .vscode
+sample.txt
 
 # Compiled source #
 ###################
