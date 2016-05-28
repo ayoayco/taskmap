@@ -1,0 +1,7 @@
+
+to do:
+1. create search box powered by google
+2. get lat long
+3. get interest/query
+4. get json of foursquare results
+5. display on map
