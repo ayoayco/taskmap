@@ -25,6 +25,8 @@ var leafletapp;
             userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
             console.log("User location acquired: " + userLocation);
             map.setView(userLocation, 13);
+            // markLocation(userLocation);
+            highlightArea(userLocation, 6500);
             tileLayer.addTo(map);
         }
         // upon error, do this
@@ -32,48 +34,24 @@ var leafletapp;
             console.log('Error: ' + err + ' :('); // alert the error message
         }
     }
-    function markUserLocation() {
-        // call getCurrentPosition()
-        navigator.geolocation.getCurrentPosition(success, error, options);
-        // upon success, do this
-        function success(pos) {
-            // get longitude and latitude from the position object passed in
-            userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
-            console.log("User location acquired: " + userLocation);
-            L.marker(userLocation).addTo(map);
-        }
-        // upon error, do this
-        function error(err) {
-            console.log('Error: ' + err + ' :('); // alert the error message
-        }
+    function markLocation(loc) {
+        L.marker(loc).addTo(map);
     }
-    function highlightUserArea() {
-        // call getCurrentPosition()
-        navigator.geolocation.getCurrentPosition(success, error, options);
-        // upon success, do this
-        function success(pos) {
-            // get longitude and latitude from the position object passed in
-            userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
-            console.log("User location acquired: " + userLocation);
-            L.circle(userLocation, 6500, {
-                color: 'red',
-                fillColor: 'red',
-                fillOpacity: 0.2
-            }).addTo(map);
-        }
-        // upon error, do this
-        function error(err) {
-            console.log('Error: ' + err + ' :('); // alert the error message
-        }
+    function highlightArea(loc, rad) {
+        L.circle(loc, rad, {
+            color: 'red',
+            fillColor: 'red',
+            fillOpacity: 0.2
+        }).addTo(map);
     }
     if ('geolocation' in navigator) {
         setUserLocation();
-        markUserLocation();
-        highlightUserArea();
     }
     else {
         userLocation = L.latLng(51.505, -0.09);
         console.log("Failed to acquire User location.");
+        // markLocation(userLocation);
+        highlightArea(userLocation, 6500);
         map.setView(userLocation, 13);
         tileLayer.addTo(map);
     }
