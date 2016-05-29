@@ -58,9 +58,7 @@ module leafletapp{
     if('geolocation' in navigator){ // geolocation is supported :)
         setUserLocation();
     }else{ // no geolocation :(
-        userLocation = L.latLng(51.505, -0.09);
-        console.log("User location unavailable."); 
-        setUserLocation(userLocation);
+        setUserLocation(L.latLng(51.505, -0.09));
     } 
 
     

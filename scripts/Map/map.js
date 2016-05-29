@@ -16,13 +16,18 @@ var leafletapp;
         // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
         maximumAge: 0
     };
-    function setUserLocation() {
+    function setUserLocation(loc) {
         // call getCurrentPosition()
         navigator.geolocation.getCurrentPosition(success, error, options);
         // upon success, do this
         function success(pos) {
             // get longitude and latitude from the position object passed in
-            userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
+            if (loc) {
+                userLocation = loc;
+            }
+            else {
+                userLocation = L.latLng(pos.coords.latitude, pos.coords.longitude);
+            }
             console.log("User location acquired: " + userLocation);
             map.setView(userLocation, 13);
             // markLocation(userLocation);
@@ -48,11 +53,6 @@ var leafletapp;
         setUserLocation();
     }
     else {
-        userLocation = L.latLng(51.505, -0.09);
-        console.log("Failed to acquire User location.");
-        // markLocation(userLocation);
-        highlightArea(userLocation, 6500);
-        map.setView(userLocation, 13);
-        tileLayer.addTo(map);
+        setUserLocation(L.latLng(51.505, -0.09));
     }
 })(leafletapp || (leafletapp = {}));
