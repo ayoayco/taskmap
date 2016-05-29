@@ -2,9 +2,8 @@
 	// See http://go.microsoft.com/fwlink/?LinkId=733558
 	// for the documentation about the tasks.json format
 	"version": "0.1.0",
-	"command": "C:/Users/rayco/AppData/Roaming/npm/tsc",
+	"command": "C:/Users/yo_ay_000/AppData/Roaming/npm/tsc",
 	"isShellCommand": true,
 	"args": [ ],
-	"showOutput": "silent",
 	"problemMatcher": "$tsc"
 }

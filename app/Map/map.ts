@@ -62,10 +62,10 @@ module leafletapp{
             // get longitude and latitude from the position object passed in
             userLocation = L.latLng(pos.coords.latitude,pos.coords.longitude);
             console.log("User location acquired: "+userLocation);
-            L.circle(userLocation, 1000, {
+            L.circle(userLocation, 6500, {
                 color: 'red',
                 fillColor: 'red',
-                fillOpacity: 0.4,
+                fillOpacity: 0.2,
             }).addTo(map);
         }
         
@@ -82,7 +82,7 @@ module leafletapp{
     }else{ // no geolocation :(
         userLocation = L.latLng(51.505, -0.09);
         console.log("Failed to acquire User location."); 
-        map.setView([userLocation.lat, userLocation.lng], 13);
+        map.setView(userLocation, 13);
         tileLayer.addTo(map);
     } 
 
