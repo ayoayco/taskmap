@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&sensor=false"></script>
+
+  <style>
+    .search-input {
+      font-family: Courier
+    }
+    
+    .search-input,
+    .leaflet-control-search {
+      max-width: 400px;
+    }
+    
+    #map{
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+
+
+</head>
+
+<body>
+  <div id="map"></div>
+
+
+  <script>
+    var map = new L.Map('map', {
+      zoom: 9,
+      center: new L.latLng([41.575730, 13.002411])
+    });
+    map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')); //base layer
+
+    var GoogleSearch = L.Control.extend({
+      onAdd: function() {
+        var element = document.createElement("input");
+
+        element.id = "searchBox";
+
+        return element;
+      }
+    });
+
+    (new GoogleSearch).addTo(map);
+
+    var input = document.getElementById("searchBox");
+
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      var group = L.featureGroup();
+
+      places.forEach(function(place) {
+
+        // Create a marker for each place.
+        console.log(places);
+        console.log(place.geometry.location.lat() + " / " + place.geometry.location.lng());
+        var marker = L.marker([
+          place.geometry.location.lat(),
+          place.geometry.location.lng()
+        ]);
+        group.addLayer(marker);
+      });
+
+      group.addTo(map);
+      map.fitBounds(group.getBounds());
+
+    });
+  </script>
+
+</body>
+
+</html>

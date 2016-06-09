@@ -15,4 +15,9 @@ For development dependencies, run "npm install"
 
 For typescript compilation, typescript@1.5 should be installed, not later or older. Put tsc directory address in tasks.json file. Then run "tsc --init"
 
+used:
+ - foursquare api
+ - leaflet web map library
+ - google maps api (search box)
+
 live demo: https://ayoayco.com/taskmap

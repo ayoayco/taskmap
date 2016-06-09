@@ -16,6 +16,9 @@ module leafletapp{
         // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
         maximumAge: 0 
     };
+    var places = {
+        
+    }
  
     function setUserLocation(loc ?: L.LatLng){        
         // call getCurrentPosition()
@@ -32,7 +35,7 @@ module leafletapp{
             console.log("User location acquired: "+userLocation); 
             map.setView(userLocation, 13);
             // markLocation(userLocation);
-            highlightArea(userLocation, 6500);
+            highlightArea(userLocation, 5000); // 5 kilometers radius
             tileLayer.addTo(map);
         }
         
@@ -60,6 +63,35 @@ module leafletapp{
     }else{ // no geolocation :(
         setUserLocation(L.latLng(51.505, -0.09));
     } 
+
+    var GooglePlacesSearchBox = L.Control.extend({
+    onAdd: function() {
+        var element = document.createElement("input");
+        element.id = "searchBox";
+        element.placeholder ="Search Box"
+        return element;
+    }
+    });
+    (new GooglePlacesSearchBox).addTo(map);
+
+    var input = <HTMLInputElement> document.getElementById("searchBox");
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+        return;
+    }
+    
+    
+    setUserLocation(L.latLng(
+        places[0].geometry.location.lat(),
+        places[0].geometry.location.lng())
+        );
+    
+
+    });
 
     
 /*
@@ -105,3 +137,4 @@ module leafletapp{
 */
     
 }
+

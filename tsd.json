@@ -13,6 +13,12 @@
     },
     "leaflet/leaflet.d.ts": {
       "commit": "94d8775a947f626269b06ccadd6f5e61839389d0"
+    },
+    "googlemaps/google.maps.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
+    },
+    "google-maps/google-maps.d.ts": {
+      "commit": "f481e77dfca5a146db1b4f5f20f15929b30c8729"
     }
   }
 }
